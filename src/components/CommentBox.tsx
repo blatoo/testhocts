@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { saveComment, fetchComments } from '../actions'
 // import { requireAuth } from './requireAuth'
-import { requireAuth } from './requireAuth3'
+// import { requireAuth } from './requireAuth3'
 // import requireAuth2 from './requireAuth2'
+
+import { useAuth } from './useAuth'
 
 const CommentBox = (props: any) => {
 	const [comment, setComment] = useState('')
+
+	useAuth()
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault()
@@ -36,4 +40,5 @@ const CommentBox = (props: any) => {
 
 const connector = connect(null, { saveComment, fetchComments })
 
-export default requireAuth(connector(CommentBox))
+// export default requireAuth(connector(CommentBox))
+export default connector(CommentBox)
