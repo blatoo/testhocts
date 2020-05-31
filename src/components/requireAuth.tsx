@@ -9,11 +9,15 @@ interface IProps {
 }
 export const requireAuth = (ChildComponent: React.FC<IProps>) => {
 	const ComposedComponent = (props: IProps) => {
-		useEffect(() => {
-			if (!props.auth) {
-				props.history.push('/')
-			}
-		}, [props.auth, props.history])
+		if (!props.auth) {
+			props.history.push('/')
+		}
+
+		// useEffect(() => {
+		// 	if (!props.auth) {
+		// 		props.history.push('/')
+		// 	}
+		// }, [props.auth])
 
 		return <ChildComponent {...props} />
 	}

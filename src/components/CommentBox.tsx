@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { saveComment, fetchComments } from '../actions'
 import { requireAuth } from './requireAuth'
+// import requireAuth2 from './requireAuth2'
 
 const CommentBox = (props: any) => {
 	const [comment, setComment] = useState('')
